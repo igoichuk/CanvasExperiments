@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <canvas id="myCanvas" width="1000" height="800" >
+        Your browser does not support the HTML5 canvas tag.
+    </canvas>
+
+<script src="js/utils.js"></script>
+<script src="js/renderer.js"></script>
+<script src="js/board.js"></script>
+<script src="js/astar.js"></script>
+<script src="js/app.js"></script>
+<script>
+    // entry point
+    var c = document.getElementById("myCanvas")
+    var ctx = c.getContext("2d")
+
+    var app = new App(ctx)
+    app.run()
+</script>
+
+</body>
+</html>
