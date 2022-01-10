@@ -17,8 +17,8 @@ class Board {
             for (var j = 0; j < columns; j++) {
                 //board[i][j] = Board.Cell.EMPTY
 
-                // 20% chance of a wall
-                board[i][j] = (Math.random() > 0.8) ? Board.Cell.WALL: Board.Cell.EMPTY
+                // 50% chance of a wall
+                board[i][j] = (Math.random() > 0.5) ? Board.Cell.WALL: Board.Cell.EMPTY
             }
         }
         return board
