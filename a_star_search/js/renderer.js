@@ -25,4 +25,20 @@ class Renderer {
             }
         }
     }
+
+    drawPoint(position, color) {
+        this.drawCell(position, color);
+
+        var options = this.options;
+        var ctx = options.ctx;
+        var x = options.left + position.x * options.cellWidth + options.cellWidth/2;
+        var y = options.top + position.y * options.cellHeight + options.cellHeight/2;
+
+        // Draw the ellipse
+        ctx.strokeStyle = color
+        ctx.beginPath();
+        ctx.ellipse(x, y, 6, 6, Math.PI / 4, 0, 2 * Math.PI);
+        // ctx.ellipse(x, y, 10, 10, Math.PI / 4, 0, 2 * Math.PI);
+        ctx.stroke();
+    }
 }

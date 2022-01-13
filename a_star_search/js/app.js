@@ -5,7 +5,7 @@ class App {
         this.ctx = ctx
     }
 
-    run() {
+    async run() {
         // initialize renderer
         var renderer = new Renderer({
             ctx: this.ctx,
@@ -30,13 +30,20 @@ class App {
         // generate start and goal points 
         var start = board.generatePoint({ xto: 0.2, yfrom: 0.8 })
         var goal = board.generatePoint({ xfrom: 0.8, yto: 0.2 })
-        
+
+        renderer.drawPoint(start, "Green")
+        renderer.drawPoint(goal, "Red")
+
         // search path
-        var path = AStar(start, goal, {
+        var path = await AStar(start, goal, {
                 getNeighbours: p => board.getNeighbours(p, board),
                 heuristic: p => distance(p, goal),
                 onVisited: p => renderer.drawCell(p, "SkyBlue"),
-                onFringe: p => renderer.drawCell(p, "LightCyan") 
+                onFringe: p => renderer.drawCell(p, "LightCyan"),
+                onTurn: () => {
+                    renderer.drawPoint(start, "Green")
+                    renderer.drawPoint(goal, "Red")
+                }
             },
             boardOptions)
 
@@ -46,7 +53,7 @@ class App {
         }
 
         // draw start and goal
-        renderer.drawCell(start, "Yellow")
-        renderer.drawCell(goal, "Red")
+        renderer.drawPoint(start, "Green")
+        renderer.drawPoint(goal, "Red")
     }
 }

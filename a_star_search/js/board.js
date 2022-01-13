@@ -18,7 +18,7 @@ class Board {
                 //board[i][j] = Board.Cell.EMPTY
 
                 // 50% chance of a wall
-                board[i][j] = (Math.random() > 0.5) ? Board.Cell.WALL: Board.Cell.EMPTY
+                board[i][j] = (Math.random() > 0.6) ? Board.Cell.WALL: Board.Cell.EMPTY
             }
         }
         return board

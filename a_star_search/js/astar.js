@@ -1,4 +1,4 @@
-function AStar(start, goal, searchOptions, boardOptions) {
+async function AStar(start, goal, searchOptions, boardOptions) {
     var rows = boardOptions.rows
     var columns = boardOptions.columns
     var heuristic = searchOptions.heuristic
@@ -51,6 +51,8 @@ function AStar(start, goal, searchOptions, boardOptions) {
                     searchOptions.onFringe(n)
             }
         }
+        searchOptions.onTurn();
+        await sleep(1);
     }
 
     // reconstruct path

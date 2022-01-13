@@ -22,3 +22,7 @@ function distance(a, b) {
 function equals(a, b) {
     return a.x === b.x && a.y === b.y
 }
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
