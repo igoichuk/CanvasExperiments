@@ -38,8 +38,8 @@ class App {
         var path = await AStar(start, goal, {
                 getNeighbours: p => board.getNeighbours(p, board),
                 heuristic: p => distance(p, goal),
-                onVisited: p => renderer.drawCell(p, "SkyBlue"),
-                onFringe: p => renderer.drawCell(p, "LightCyan"),
+                onVisited: p => renderer.drawCell(p, "LightCyan"),
+                onFringe: p => renderer.drawCell(p, "SkyBlue"),
                 onTurn: () => {
                     renderer.drawPoint(start, "Green")
                     renderer.drawPoint(goal, "Red")
